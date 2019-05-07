@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Official Homepage For Taxi Recommendation Project</title>
+	 <!-- add bootstrap css file -->
+
+      <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="static/css/main.css">
+
+</head>
+<body>
+  <!-- navbar -->
+
+  <nav class="navbar navbar-expand-lg fixed-top ">
+	  <a class="navbar-brand" href="#">Home</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-4">
+
+	      <li class="nav-item">
+	        <a class="nav-link" data-value="intro" href="#">Introduction</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="design" href="#">Design</a>
+	      </li>
+				<li class="nav-item">
+	        <a class="nav-link " data-value="data" href="#">Datasets</a>
+	      </li>
+				<li class="nav-item">
+	        <a class="nav-link " data-value="related" href="#">Related Work</a>
+	      </li>
+				<li class="nav-item">
+	        <a class="nav-link " data-value="experiment" href="#">Experiment</a>
+	      </li>
+				<li class="nav-item">
+	        <a class="nav-link " data-value="ref" href="#">References</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="contact" href="#">Contact</a>
+	      </li>
+				<!-- <li class="nav-item">
+	        <a class="nav-link " data-value="tryit" href="http://127.0.0.1:5400/app">Try It</a>
+	      </li> -->
+	    </ul>
+
+	  </div>
+</nav>
+<!-- header -->
+<header class="header ">
+  <div class="overlay"></div>
+   <div class="container">
+   	  <div class="description ">
+  	<h1>
+  		Hello! Welcome to Taxi Recommendation Project Website
+			<br>
+  		<p style="margin-top: 50px">
+  		Our project idea is inspired by Kaggle taxi trip fare prediction data challenge in NYC. The ability to accurately predict both the duration and fare of different taxi types at a specific pickup and drop off location at a specific time could provide valuable information to customers about which type of taxi to take. Such information could also be used by both the taxi companies and the city planning department
+			to extract useful insights in order to better serve the customers.
+		</p>
+
+			<button class="btn btn-outline-secondary btn-lg" style="margin-top: 20px" onclick="location.href='http://127.0.0.1:5400/app'" type="submit"> Try Our App
+			</button>
+  	</h1>
+  </div>
+   </div>
+
+</header>
+
+<!-- about section -->
+<div class="about" id="intro">
+	<div class="container">
+	  <h1 class="text-center">Introduction</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					There were roughly 1.6 million to 3.1 million daily commuters in New York. Helping the massive number of daily commuters to find the ideal way of commuting could dramatically increase the efficiency of the city’s transportation system. In this paper, we use a few models to predict the taxi trip fare and trip duration for different taxi types that occur at a specific time and location in New York City. This information could be used by the customers to choose the most affordable and the fastest way of traveling. We explored three different types of taxi: For Hired Vehicle (FHV, e.g. Uber, Lyft, etc.), Yellow Taxi, as well as Green taxi. We then implemented and evaluated three different models, including linear regression, decision tree, and random forest regressor to predict the time and fare of different types of taxi trips. Our best performing model on taxi fare is the linear regression model with distance as the main input feature, while the best performing model on trip duration is decision tree regression model.
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about" id="design">
+	<div class="container">
+	  <h1 class="text-center">Project Design</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					As the business of FHV is booming in the recent years, our options of travelling have expanded dramatically. Besides the traditional taxis, we can call an Uber, or a Lyft, or share the ride with someone on Via, and etc. It becomes more and more difficult, for the consumers, to find the most cost-efficient option of travel, both in terms of their time and money. Therefore, our application is here to help our users find the best travel option for their time and money.
+					<br><br>Our data is collected and processed manually. The processed data will be stored in the NYU HPC cluster’s HDFS system. The application will be hosted on the NYU HPC’s DUMBO cluster where it will have direct access to the data through HDFS. Our application will first collect user input, then feed the input and the stored dataset into the MLlib model to provide the trip recommendation to the user.
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about" id="data">
+	<div class="container">
+	  <h1 class="text-center">Datasets</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					In our study, we will use three data resources. NYC Taxi and Limousine Commission (TLC) trip record Data, National Oceanic and Atmospheric Administration (NOAA) weather data and the US Census American Community Survey (ACS) geographical dataset.
+<br><br>A. TLC trip record data
+	The NYC TLC by technology providers authorized the data used. We will use the FHV trip records include fields capture the dispatching base license number and the pick-up date, time, and taxi zone location ID. These records are generated from the FHV Trip Record submissions made by bases. The record data is static, minute-based dataset. Each month’s data size is about 1 GB. We will use the data for 2017 whole year, which in total is 12 GB.
+<br><br>B.  NOAA data
+	National centers for environmental information provide the local climatological data daily summary. It includes the maximum, minimum, average temperature and weather type description etc. We requested the 2017 whole year weather data in NYC from NOAA website. We are thinking to present how the weather influences the FHV trip in NYC and answering more questions in their relationship.
+<br><br>C. ACS data
+	American Community Survey by Census tract provides multiple characteristics of each Census tract, including geography, income, demographics and etc. We extracted the 1-year survey data of 2017 in NYC. We want to understand and visualize the FHV data with Census data source.
+
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about" id="related">
+	<div class="container">
+	  <h1 class="text-center">Related Work</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					Many researchers have conducted studies regarding predicting taxi trip fare and taxi trip demands in the past. Josh et al. used several models to predict both the duration and the fare of taxi trips in NYC. Using all 170 million taxi trips in NYC in 2013, they started with the baseline model that achieves a RMSD of 145.78 and R2 of 0.7318. They find out that the Decision Tree Regression model on feature set No. 1 performs the best, with RMSD of 33.47 and a R2 of 0.9858 [2].
+	<br><br>On the other hand, Alexandre et al. posted the topic of how to predict taxi destinations as a Kaggle challenge. In their paper they introduced a few different approaches to predict the destination of a taxi given a prefix of its trajectory. The first approach, which is the winning approach, uses a Multi-Layer Perceptron (MLP), where the input layer receives the prefix of taxi and the output layer predicts the destination in as a combination of latitude and longitude. And there is only one hidden layer that consists 500 Rectifier Linear Unit (ReLU) neurons. The other approaches that did not perform as well are Recurrent Neural Networks (RNN), Bidirectional Recurrent Neural Networks (BRNN), and Memory Networks [3].
+
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about" id="experiment">
+	<div class="container">
+	  <h1 class="text-center">Experiment</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					During our experiment with our sample datasets, 1,000 rows of randomly sampled data, we tested linear regression, decision tree, and random forest regressor models to predict the time and fare of different types of taxi trips in a Python 3 environment. Our best performing model on taxi fare is the linear regression model with distance as the main input feature, while the best performing model on trip duration is decision tree regression model. The next phase of our experiment is to test the models using PySpark and MLlib with the entire dataset.
+					<br><br>In the sample experiment and the prototype of the application, we found some models with outstanding performances which help point the direction of our future development. We believe as the final application is implemented; we will be able to calculate the trip methods with the lowest cost using the given dataset.
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about" id="ref">
+	<div class="container">
+	  <h1 class="text-center">References</h1>
+		<div class="row">
+			<!-- <div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="images/team-3.jpg" class="img-fluid">
+			</div> -->
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
+				<p>
+					<br><br>[1]		US Census Bureau, “Comparing 2013 American Community Survey Data”, US Census Bureau, [online document], 2013, Available: United States Census Bureau, https://www.census.gov/programs-surveys/acs/guidance/comparing-acs-data/2013.html. [Accessed. April 17, 2019]
+<br><br>[2]	Christopher Antoniades et al., “Fare and Duration Prediction: A Study of New York City Taxi Rides”, Stanford University, [online document], 2016, Available: Stanford University, http://cs229.stanford.edu/proj2016/report/AntoniadesFadaviFobaAmonJuniorNewYorkCityCabPricing-report.pdf. [Accessed April 17, 2019].
+<br><br>[3]	Alexandre de Brébisson et al., “Artificial Neural Networks Applied to Taxi Destination Prediction”, Cornell University, [online document], September 2015, Available: Cornell University, https://arxiv.org/abs/1508.00021. [Accessed April 17, 2019].
+
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Contact form -->
+<div class="contact-form" id="contact">
+	<div class="container">
+		<form>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12">
+				  <h1>Get in Touch</h1>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-12 right">
+				   <div class="form-group">
+				   	 <input type="text" class="form-control form-control-lg" placeholder="Your Name" name="">
+				   </div>
+				   <div class="form-group">
+				   	 <input type="email" class="form-control form-control-lg" placeholder="YourEmail@email.com" name="email">
+				   </div>
+				   <div class="form-group">
+				   	 <textarea class="form-control form-control-lg">
+
+				   	 </textarea>
+				   </div>
+				   <input type="submit" class="btn btn-secondary btn-block" value="Send" name="">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- add Javasscript file from js file -->
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src='static/js/main.js'></script>
+
+</body>
+</html>

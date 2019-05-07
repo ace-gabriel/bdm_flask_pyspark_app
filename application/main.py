@@ -4,6 +4,10 @@ app = Flask(__name__)
 
 @app.route("/home", methods=['GET', 'POST'])
 def home():
+    return render_template("index.html")
+
+@app.route("/app", methods=['GET', 'POST'])
+def demo():
     return render_template("main.html")
 
 
