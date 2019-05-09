@@ -15,7 +15,11 @@ def demo():
 def main():
     req = request.form
     num_passenger, drop, pick = req.get("num_passengers"), req.get("dropoff"), req.get("pickup")
-    req = {"fare": parse(num_passenger, drop, pick)}
+    if validation(num_passenger, drop, pick):
+        fare = parse(num_passenger, drop, pick)
+        req = {"response": "Your predicted fare: " + str(fare)}
+    else:
+        req = {"response": "Invalid input. Please try again"}
     return render_template("result.html", result=req)
 
 

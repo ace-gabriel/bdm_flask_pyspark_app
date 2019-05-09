@@ -9,8 +9,29 @@ from pyspark.sql import Row
 from collections import OrderedDict
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
+import re
 
 File = 'data/reduce_input.csv'
+
+def validation(num_passenger, drop, pick):
+    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+
+    if not num_passenger.isdigit():
+        return False
+
+    if len(drop.split(',')) != 2 or len(pick.split(',')) != 2:
+        return False
+
+    for sub in drop.split(','):
+        for item in sub:
+            if regex.search(item) != None:
+                return False
+
+    for sub in pick.split(','):
+        for item in sub:
+            if regex.search(item) != None:
+                return False
+    return True
 
 def calc_dis(drop, pick):
     geolocator = Nominatim(user_agent="taxi")
