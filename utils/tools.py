@@ -36,14 +36,19 @@ def validation(num_passenger, drop, pick):
 def calc_dis(drop, pick):
     geolocator = Nominatim(user_agent="taxi")
     drop_loc, pick_loc = geolocator.geocode(drop), geolocator.geocode(pick)
-    dl, pl = (drop_loc.latitude, drop_loc.longitude), (pick_loc.latitude, pick_loc.longitude)
-    return geodesic(dl, pl).miles
+    if drop_loc == None or pick_loc == None:
+        return None
+    else:
+        dl, pl = (drop_loc.latitude, drop_loc.longitude), (pick_loc.latitude, pick_loc.longitude)
+        return geodesic(dl, pl).miles
 
 def parse(num, drop, pick, file=File):
 
     sc = SparkContext.getOrCreate()
     sqlContext = SQLContext(sc)
     distance = calc_dis(drop, pick)
+    if distance == None:
+        return None 
     # initailize params
     prcp = 0.0413
     snow = 0.0603
